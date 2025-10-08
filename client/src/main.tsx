@@ -1,10 +1,9 @@
-import { StrictMode, useState, Fragment } from 'react'
+import { StrictMode, useState, Fragment, lazy, Suspense, useLayoutEffect, useEffect, type ReactNode } from 'react'
 import '@/index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from '@/contexts/theme'
 import { createRoot } from 'react-dom/client'
 import { ConfigProvider } from '@/contexts/config'
-import { lazy, Suspense, useLayoutEffect, useEffect, type ReactNode } from 'react'
 import { Outlet, Route, Routes, useLocation } from 'react-router-dom'
 import { useConfig } from "@/contexts/config"
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
