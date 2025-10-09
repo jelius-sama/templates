@@ -17,6 +17,7 @@ const queryClient = new QueryClient()
 const Home = lazy(() => import("@/pages/home"))
 const NotFound = lazy(() => import("@/pages/not-found"))
 const Toaster = lazy(() => import('@/components/ui/sonner'))
+const Bench = lazy(() => import("@/pages/bench"))
 
 let rootEl = document.getElementById('root') as HTMLDivElement | null;
 
@@ -140,6 +141,7 @@ reactRoot.render(
               <Routes>
                 <Route path='/' element={<App />}>
                   <Route path='/' element={<ServerErrorWrapper comp={<Home />} />} />
+                  <Route path='/bench' element={<ServerErrorWrapper comp={<Bench />} />} />
                   <Route path='*' element={<ServerErrorWrapper comp={<NotFound />} />} />
                 </Route>
               </Routes>
