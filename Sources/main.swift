@@ -1,4 +1,9 @@
 import GoUtil
 
-Test()
-print("Hello, world!")
+@main
+struct Entry {
+    static func main() {
+        Test()
+        print("Hello, world!")
+    }
+}
