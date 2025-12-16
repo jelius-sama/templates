@@ -4,7 +4,7 @@ TITLE := Template
 
 pre-build:
 	@echo "Getting ready for build..."
-	@musl-go build -buildmode=c-archive -o ./Libs/goutil/libgoutil.a ./Libs/goutil/
+	@musl-go build -buildmode=c-archive -ldflags="-s -w" -trimpath -o ./Libs/goutil/libgoutil.a ./Libs/goutil/
 	@mkdir -p ./Sources/GoUtil
 	@mv ./Libs/goutil/libgoutil.h ./Sources/GoUtil/libgoutil.h
 	@echo "Pre-built done!\n"
