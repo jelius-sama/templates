@@ -19,6 +19,19 @@ typedef struct { const char *p; ptrdiff_t n; } _GoString_;
 /* Start of preamble from import "C" comments.  */
 
 
+#line 3 "goutil.go"
+
+#include <stdint.h>
+#include <stdlib.h>
+
+typedef void (*http_handler_fn)(uintptr_t ctx_id);
+typedef const char cchar_t;
+
+static inline void call_swift_handler(http_handler_fn fn, uintptr_t ctx_id) {
+    fn(ctx_id);
+}
+
+#line 1 "cgo-generated-wrapper"
 
 
 /* End of preamble from import "C" comments.  */
@@ -74,7 +87,34 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern void Test();
+extern char* StartServer(char* port);
+extern void EPrint(cchar_t* msg);
+extern void Print(cchar_t* msg);
+extern void NewRoute(char* path, http_handler_fn handler);
+extern void* GetRequestID(uintptr_t ctxID);
+extern void* GetResponseID(uintptr_t ctxID);
+extern int HttpWrite(void* ctxID, char* data, int length);
+extern void HttpWriteHeader(void* ctxID, int statusCode);
+extern void HttpSetHeader(void* ctxID, char* key, char* value);
+extern void HttpAddHeader(void* ctxID, char* key, char* value);
+extern void HttpDelHeader(void* ctxID, char* key);
+extern char* HttpGetHeader(void* ctxID, char* key);
+extern char* ReqGetMethod(void* ctxID);
+extern char* ReqGetURL(void* ctxID);
+extern char* ReqGetPath(void* ctxID);
+extern char* ReqGetRawQuery(void* ctxID);
+extern char* ReqGetQuery(void* ctxID, char* key);
+extern char* ReqGetHeader(void* ctxID, char* key);
+extern char* ReqGetHost(void* ctxID);
+extern char* ReqGetRemoteAddr(void* ctxID);
+extern char* ReqGetProto(void* ctxID);
+extern int64_t ReqGetContentLength(void* ctxID);
+extern int ReqReadBody(void* ctxID, char* buffer, int length);
+extern char* ReqReadBodyFull(void* ctxID, int* outLen);
+extern char* ReqGetCookie(void* ctxID, char* name);
+extern char* ReqGetUserAgent(void* ctxID);
+extern char* ReqGetReferer(void* ctxID);
+extern void HttpSetCookie(void* ctxID, char* name, char* value, char* path, int maxAge);
 
 #ifdef __cplusplus
 }
