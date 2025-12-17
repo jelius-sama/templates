@@ -223,7 +223,7 @@ struct Entry {
         // Start server in background thread
         let serverThread = Thread {
             if let port = strdup(":6969") {
-                print("Starting server on", port)
+                print("Starting server on", String(cString: port))
                 if let err = StartServer(port) {
                     EPrint("StartingServer(): \(String(cString: err))")
                     free(err)
