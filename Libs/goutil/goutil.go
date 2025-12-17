@@ -75,18 +75,6 @@ func NewRoute(path *C.char, handler C.http_handler_fn) {
     multiplexer.HandleFunc(C.GoString(path), handleFunc)
 }
 
-/********** Context Accessors **********/
-
-//export GetRequestID
-func GetRequestID(ctxID C.uintptr_t) unsafe.Pointer {
-    return unsafe.Pointer(uintptr(ctxID))
-}
-
-//export GetResponseID
-func GetResponseID(ctxID C.uintptr_t) unsafe.Pointer {
-    return unsafe.Pointer(uintptr(ctxID))
-}
-
 /********** Response Writer Methods **********/
 
 //export HttpWrite
