@@ -3,13 +3,16 @@ TITLE := Template
 .PHONY: pre-build release dev clean
 
 dev:
-	@swift build --swift-sdk x86_64-swift-linux-musl
+	@swift build \
+		-Xswiftc -parse-as-library \
+		--swift-sdk x86_64-swift-linux-musl
 	@echo "Successfully built \`./.build/debug/$(TITLE)\` for debug."
 	@echo "Executing...\n" && ./.build/debug/$(TITLE)
 
 release:
 	@mkdir -p ./bin
 	@swift build --swift-sdk x86_64-swift-linux-musl -c release \
+		-Xswiftc -parse-as-library \
 		-Xswiftc -O \
 		-Xswiftc -whole-module-optimization \
 		-Xswiftc -cross-module-optimization \
