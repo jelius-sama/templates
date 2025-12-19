@@ -6,7 +6,4 @@ DerivedData/
 .swiftpm/configuration/registries.json
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
-
 bin/
-Libs/goutil/libgoutil.h
-Libs/goutil/libgoutil.a
