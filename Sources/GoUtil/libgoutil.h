@@ -91,8 +91,6 @@ extern char* StartServer(char* port);
 extern void EPrint(cchar_t* msg);
 extern void Print(cchar_t* msg);
 extern void NewRoute(char* path, http_handler_fn handler);
-extern void* GetRequestID(uintptr_t ctxID);
-extern void* GetResponseID(uintptr_t ctxID);
 extern int HttpWrite(void* ctxID, char* data, int length);
 extern void HttpWriteHeader(void* ctxID, int statusCode);
 extern void HttpSetHeader(void* ctxID, char* key, char* value);
